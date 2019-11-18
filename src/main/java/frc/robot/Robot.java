@@ -15,34 +15,45 @@ import frc.robot.userinterface.UserInterface;
 
 public class Robot extends TimedRobot {
 
-    private UsbCamera camera;
-    private CommandGroup autonomous;
-    private Rotations rotations;
+    // Your variables here will represent any cameras, pixies, and autonomous/teleop commands that you plan to use.
 
-    public void robotInit() {
-        Subsystems.compressor.start();
-        UserInterface.operatorController.A.whenPressed(new IntakeGrab()); // intake arms close: A
-        UserInterface.operatorController.B.whenPressed(new IntakeRelease()); // intake arms open: B
-        UserInterface.operatorController.X.whenPressed(new GuillotineHold()); // kicker retracts: X
-        UserInterface.operatorController.Y.whenPressed(new GuillotineKick()); // kicker kicks out: Y
-        UserInterface.operatorController.START.whenPressed(new IntakeBox()); // entire programmed sequence: START
-        camera = CameraServer.getInstance().startAutomaticCapture();
-        Subsystems.arduino.sendCommand("0001111");
-        Subsystems.guillotine.zeroLiftPosition();
-
-        rotations = new Rotations();
+    // This is the constructor!
+    public Robot() {
+        super(0.06);
     }
 
-    // intake arms close: A
-    // intake arms open: B
-    // kicker retracts: X
-    // kicker kicks out: Y
-    // entire programmed sequence: START
-    // Right trigger: intake wheels
-    // Left trigger: outake wheels
-    // Left joystick: rotation
-    // Right joystick: forwards and backwards
-    // Ensure that guillotine is completely down before beginning START
+    // Called when robot turned on
+    public void robotInit() {
+
+        /*
+        Here is where you should initialize everything, rather than the constructor.
+        Once you've made variables for this class above, do that here!
+
+        Besides that, you'll want to do a few things to set up your robot:
+        - Once you've made subsystems:
+            1. Start the compressor
+            2. Set any initial positions (here, set guillotine to lowest position)
+            3. We have fancy LEDs, so use the command Subsystems.arduino.sendCommand("0001111");
+        - Once you've made the user interface & commands for them:
+            1. Connect buttons with commands, e.g. (insert button).whenPressed(new IntakeGrab());
+            Note that this only used for commands that should be executed on a button press.
+            Here's what the buttons should do in total:
+
+            "intake arms close: A
+            intake arms open: B
+            kicker retracts: X
+            kicker kicks out: Y
+            entire programmed sequence: START
+            Right trigger: intake wheels
+            Left trigger: outake wheels
+            Left joystick: rotation
+            Right joystick: forwards and backwards
+            Ensure that guillotine is completely down before beginning"
+
+            Which of these buttons should you set up here?
+        */
+
+    }
 
     public void disabledInit() {
         Subsystems.arduino.sendCommand("0001111");
