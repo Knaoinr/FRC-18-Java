@@ -1,38 +1,35 @@
 package frc.robot.userinterface;
 
-import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.buttons.JoystickButton;
+// import edu.wpi.first.wpilibj.Joystick;
+// import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 public class XboxController {
 
-    private Joystick joystick;
-    public final JoystickButton A, B, X, Y, LB, RB, BACK, START;
+    // private Joystick joystick;
+    // public final JoystickButton A, B, X, Y, LB, RB, BACK, START;
 
     public XboxController(int port) {
-        this.joystick = new Joystick(port);
-        this.A = new JoystickButton(joystick, 1);
-        this.B = new JoystickButton(joystick, 2);
-        this.X = new JoystickButton(joystick, 3);
-        this.Y = new JoystickButton(joystick, 4);
-        this.LB = new JoystickButton(joystick, 5);
-        this.RB = new JoystickButton(joystick, 6);
-        this.BACK = new JoystickButton(joystick, 7);
-        this.START = new JoystickButton(joystick, 8);
+        /*
+        Initialize your joystick and its buttons!
+        It's good practice to access them with "this.button" rather than just "button", e.g. "this.joystick" rather than "joystick"
+        A Joystick's constructor is Joystick(int port), and a JoystickButton's contructor is JoystickButton(Joystick joystick, int port).
+        The ports for the buttons are in order from 1 to 8.
+        */
     }
 
-    public double getLeftJoystickX() { return joystick.getRawAxis(0); }
+    /*
+    The buttons' values can be directly accessed with built-in methods. However, the joystick is a little less straightforward.
+    You'll need to create public methods that get all the axes as well as the Xbox controller's POV thing.
+    To get an axis, use the method -> joystick.getRawAxis(int port);
+    To get the POV, use the method -> joystick.getPOV(0);
 
-    public double getLeftJoystickY() { return joystick.getRawAxis(1); }
+    The ports for the axes are as follows:
+    - Left joystick x: 0
+    - Left joystick y: 1
+    - Right joystick x: 4
+    - Right joystick y: 5
+    - Left trigger: 2
+    - Right trigger: 3
+    */
 
-    public double getRightJoystickX() { return joystick.getRawAxis(4); }
-
-    public double getRightJoystickY() { return joystick.getRawAxis(5); }
-
-    public double getLeftTrigger() { return joystick.getRawAxis(2); }
-
-    public double getRightTrigger() { return joystick.getRawAxis(3); }
-
-    public int getPOVAngle() {
-        return joystick.getPOV(0);
-    }
 }

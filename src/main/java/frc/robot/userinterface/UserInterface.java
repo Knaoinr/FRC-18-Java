@@ -1,11 +1,13 @@
 package frc.robot.userinterface;
 
-import frc.robot.RobotMap;
+// import frc.robot.RobotMap;
 
 public class UserInterface {
 
-    public static final XboxController driverController = new XboxController(RobotMap.driverXboxController);
-    public static final XboxController operatorController = new XboxController(RobotMap.operatorXboxController);
-    public static final Launchpad launchpad = new Launchpad(RobotMap.launchpad);
+    /*
+    This class contains all the objects used to control the robot.
+    Right now, we're using two xbox controllers - the driver controller and operator controller.
+    Make public static final instances of each controller! You'll be able to access these anywhere.
+    */
 
 }
