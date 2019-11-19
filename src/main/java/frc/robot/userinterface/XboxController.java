@@ -18,6 +18,7 @@ public class XboxController {
     }
 
     /*
+    The goal of a controller class is to make all the values on a controller easily accessible.
     The buttons' values can be directly accessed with built-in methods. However, the joystick is a little less straightforward.
     You'll need to create public methods that get all the axes as well as the Xbox controller's POV thing.
     To get an axis, use the method -> joystick.getRawAxis(int port);

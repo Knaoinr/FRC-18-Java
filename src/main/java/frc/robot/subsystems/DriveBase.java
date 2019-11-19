@@ -8,25 +8,15 @@ import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
-import frc.robot.commands.TankDrive;
+// import frc.robot.commands.TankDrive;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 public class DriveBase extends Subsystem {
 
-    // private TalonSRX leftMasterMotor;
-    // private TalonSRX rightMasterMotor;
-
     private WPI_TalonSRX leftMasterMotor;
     private WPI_TalonSRX rightMasterMotor;
 
-    // If on Clyde
-/*    private TalonSRX leftFollower1;
-    private TalonSRX leftFollower2;
-    private TalonSRX rightFollower1;
-    private TalonSRX rightFollower2;*/
-
-    // If on Axiom
     private WPI_VictorSPX leftFollower1;
     private WPI_VictorSPX leftFollower2;
     private WPI_VictorSPX rightFollower1;
@@ -46,15 +36,6 @@ public class DriveBase extends Subsystem {
         this.leftMasterMotor = new WPI_TalonSRX(RobotMap.leftMasterMotor);
         this.rightMasterMotor = new WPI_TalonSRX(RobotMap.rightMasterMotor);
 
-        // If on Clyde
-/*
-        this.leftFollower1 = new TalonSRX(RobotMap.LEFT_FOLLOWER_1);
-        this.leftFollower2 = new TalonSRX(RobotMap.LEFT_FOLLOWER_2);
-        this.rightFollower1 = new TalonSRX(RobotMap.RIGHT_FOLLOWER_1);
-        this.rightFollower2 = new TalonSRX(RobotMap.RIGHT_FOLLOWER_2);
-*/
-
-        // If on Axiom
         this.leftFollower1 = new WPI_VictorSPX(RobotMap.leftFollower1);
         this.leftFollower2 = new WPI_VictorSPX(RobotMap.leftFollower2);
         this.rightFollower1 = new WPI_VictorSPX(RobotMap.rightFollower1);
@@ -72,15 +53,11 @@ public class DriveBase extends Subsystem {
         leftMasterMotor.setInverted(true);
         leftFollower1.setInverted(true);
         leftFollower2.setInverted(true);
-
-        // leftFollower1.follow(leftMasterMotor);
-        // leftFollower2.follow(leftMasterMotor);
-        // rightFollower1.follow(rightMasterMotor);
-        // rightFollower2.follow(rightMasterMotor);
     }
 
+    // Notice that, in this case, you'll have a default command that controls the drive base.
     @Override
-    public void initDefaultCommand() { this.setDefaultCommand(new TankDrive()); }
+    public void initDefaultCommand() { /* this.setDefaultCommand(new TankDrive()); */ }
 
     public void setMotors(double left, double right) {
         // leftMasterMotor.set(ControlMode.PercentOutput, left * 0.5);
