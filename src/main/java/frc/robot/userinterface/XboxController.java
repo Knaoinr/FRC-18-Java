@@ -11,7 +11,6 @@ public class XboxController {
     public XboxController(int port) {
         /*
         Initialize your joystick and its buttons!
-        It's good practice to access them with "this.button" rather than just "button", e.g. "this.joystick" rather than "joystick"
         A Joystick's constructor is Joystick(int port), and a JoystickButton's contructor is JoystickButton(Joystick joystick, int port).
         The ports for the buttons are in order from 1 to 8.
         */
