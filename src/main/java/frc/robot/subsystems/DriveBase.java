@@ -8,7 +8,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
-// import frc.robot.commands.TankDrive;
+import frc.robot.commands.TankDrive;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
@@ -57,13 +57,11 @@ public class DriveBase extends Subsystem {
 
     // Notice that, in this case, you'll have a default command that controls the drive base.
     @Override
-    public void initDefaultCommand() { /* this.setDefaultCommand(new TankDrive()); */ }
+    public void initDefaultCommand() { this.setDefaultCommand(new TankDrive()); }
 
     public void setMotors(double left, double right) {
-        // leftMasterMotor.set(ControlMode.PercentOutput, left * 0.5);
-        // rightMasterMotor.set(ControlMode.PercentOutput, right * 0.5);
-        leftSide.set(left*0.3);//see percent output above, think it's just be a master-follower thing?
-        rightSide.set(right*0.3);
+        leftSide.set(left);
+        rightSide.set(right);
     }
 
     public int getLeftPosition() {
